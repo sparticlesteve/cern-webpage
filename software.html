@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id="nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="analysis.html">Data Analysis</a></li>
+    <li><a href="dq.html">Data Quality</a></li>
+    <li><a href="software.html">Software</a></li>
+  </ul>
+</div>
+
+<h1>Software</h1>
+<p>You will find here links to my software contributions to ATLAS, either in data analysis
+or in technical work. Most of these links are for ATLAS members only (non-public).
+Where applicable, I will include links to the code in the ATLAS SVN repository
+as well as the ChangeLog with my updates documented and relevant SVN changesets.</p>
+
+<br><br><hr>
+<h2>SUSY Analysis Ntuple</h2>
+<p>
+I wrote an analysis ntuple format (dubbed SusyNt) and framework which is used by the SUSY electroweak analyses.
+The ntuples are produced from SUSY D3PDs. Common SUSY object selection and corrections are performed upstream
+and the events are filtered such that the ntuples can be stored locally and analyzed quickly and easily.
+The code is organized into two RootCore based packaged in SVN. The SusyNtuple package defines the interface
+for reading/writing the ntuple. It also provides classes for looping over the ntuple and performing object selection,
+calculating various event level properties, and performing event selection. The SusyCommon package contains
+the functionality to read and analyze the SUSY D3PDs and produce the SusyNt.
+</p>
+<p>Links:
+<ul>
+  <li><a href="https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/UCISusyNtuples" target="_blank">TWiki page</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasinst/browser/Institutes/UCIrvine/SUSYAnalysis/SusyNtuple" target="_blank">SusyNtuple package in SVN</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasinst/browser/Institutes/UCIrvine/SUSYAnalysis/SusyCommon" target="_blank">SusyCommon package in SVN</a></li>
+</ul>
+</p>
+
+<br><br><hr>
+<h2>Top Reconstruction Software</h2>
+<p>
+While working in the Top physics working group, I contributed to the top reconstruction software tools.
+These tools ran in athena on AODs to produce dAODs and D3PDs with common object selections stored for
+easy retrieval and analysis.
+</p>
+
+<h3>TopInputs Packages</h3>
+<p>
+For the TopInputs related packages, I contributed to code that's used to resolve the ambiguity 
+between reconstructed objects that overlap in the detector. Specifically, to the TopInputsSelection package I added
+a tool that finds electrons and muons that overlap:
+<ul>
+  <li>TopInputsSelection package:
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsSelection/trunk" target="_blank">Code in SVN</a>,
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsSelection/trunk/ChangeLog" target="_blank">ChangeLog</a>, and
+    <a href="https://svnweb.cern.ch/trac/atlasoff/changeset?new=315772%40Reconstruction%2FTop%2FTopInputsSelection%2Ftrunk&old=315766%40Reconstruction%2FTop%2FTopInputsSelection%2Ftrunk" target="_blank">SVN changeset</a>.
+  </li>
+</ul>
+For the next set of packages I added trigger information to the overlap code.
+I also added the necessary features to persistify this trigger information in the POOL model:
+<ul>
+  <li>TopInputs:
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputs/trunk" target="_blank">Code in SVN</a>,
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputs/trunk/ChangeLog" target="_blank">ChangeLog</a>, and
+    <a href="https://svnweb.cern.ch/trac/atlasoff/changeset?new=295378%40Reconstruction%2FTop%2FTopInputs%2Ftrunk&old=290391%40Reconstruction%2FTop%2FTopInputs%2Ftrunk" target="_blank">SVN changeset</a>.
+  </li>
+
+  <li>TopInputsAthenaPool:
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsAthenaPool/trunk" target="_blank">Code in SVN</a>,
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsAthenaPool/trunk/ChangeLog" target="_blank">ChangeLog</a>, and
+    <a href="https://svnweb.cern.ch/trac/atlasoff/changeset?new=295382%40Reconstruction%2FTop%2FTopInputsAthenaPool%2Ftrunk&old=273997%40Reconstruction%2FTop%2FTopInputsAthenaPool%2Ftrunk" target="_blank">SVN changeset</a>.
+  </li>
+
+  <li>TopInputsTPCnv:
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsTPCnv/trunk" target="_blank">Code in SVN</a>,
+    <a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopInputsTPCnv/trunk/ChangeLog" target="_blank">ChangeLog</a>, and
+    <a href="https://svnweb.cern.ch/trac/atlasoff/changeset?new=295380%40Reconstruction%2FTop%2FTopInputsTPCnv%2Ftrunk&old=220755%40Reconstruction%2FTop%2FTopInputsTPCnv%2Ftrunk" target="_blank">SVN changeset</a>.
+  </li>
+</ul>
+</p>
+
+<h3>TopInputsValidation Package</h3>
+<p>
+I helped write an algorithm which runs along with the TopInputs machinery and validates that the object selections
+are applied correctly by making histograms and checking that the distributions fall within the required criteria. 
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Reconstruction/Top/TopValidation/TopInputsValidation" target="_blank">Code in SVN</a></li>
+</ul>
+</p>
+
+<br><br><hr>
+<h2>Data Quality Monitoring Framework</h2>
+<p>
+As part of my ATLAS service work, I did some software development for the data quality (DQ) monitoring framework.
+This framework defines the functionality and tools for monitoring the quality of the ATLAS data during offline reconstruction.
+DQ monitoring tools produce histograms that can be checked by shifters and automatic tools to identify problems in the data.
+</p>
+
+<h3>AthenaMonitoring Package</h3>
+<p>For the AthenaMonitoring package I implemented a couple of features which were, although small and easy to code,
+instructive in the usage of reconstruction transforms in athena.</p>
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Control/AthenaMonitoring" target="_blank">Code in SVN</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Control/AthenaMonitoring/trunk/ChangeLog" target="_blank">Full ChangeLog</a></li>
+</ul>
+
+<p><b>Stream-aware monitoring</b> - In order to reduce the CPU footprint of the DQ monitoring algorithms during
+ATLAS offline reconstruction, I implemented the functionality to specify which tools run on which trigger streams.
+This way, each tool only runs on the trigger streams which are relevant for its specific monitoring purposes.
+<ul>
+  <li><a href="https://twiki.cern.ch/twiki/bin/viewauth/Atlas/DQStreamMatrix" target="_blank">TWiki page gathering information about trigger stream requirements</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Control/AthenaMonitoring/trunk/share/DQMonFlagsConfig_jobOptions.py#L233" target="_blank">Implementation of the settings in the python job options</a></li>
+</ul>
+</p>
+
+<p><b>Trigger-aware monitoring</b> - DQ monitoring tools rely on trigger chains to select relevant data for monitoring. 
+To improve flexibility of the tools and reduce dependence on hardcoded trigger chains, I implemented a centralized 
+dictionary for steering the trigger chains used by each tool. This allows for the chains to be overridden in the
+arguements of the reconstruction transform:<br>
+<code>Reco_trf.py ... preExec='DQMonFlags.triggerChainMap.get_Value().update({`jetTagMonTool`:`L1_J15`})'</code><br>
+This example would override the default trigger chain for the tool named 'jetTagMonTool' and specify to use the L1_J15 trigger chain.
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Control/AthenaMonitoring/trunk/python/DQMonFlags.py#L322" target="_blank">Definition of dictionary as a JobProperty</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/Control/AthenaMonitoring/trunk/share/DataQualitySteering_jobOptions.py#L212" target="_blank">Implementation of the trigger chain override in the python job options</a></li>
+</ul>
+</p>
+
+<br><br><hr>
+<h2>Data Quality Defects</h2>
+<p>I've also worked on software development for ATLAS detector defects. I maintained a tool 
+that does automatic calculation of defects and wrote various user scripts for analyzing
+the impacts of defects on data-taking efficiency. For more on my defect studies, see the
+dedicated <a href="dq.html">data quality</a> page.</p>
+
+<h3>DCS Calculator</h3>
+<p>The DCS calculator is a tool written in python which reads detector control information and 
+automatically assigns defects to the defect database. I've been in charge of maintaining this 
+code since September 2011. My updates involved updating the criteria for defect assignment
+in conjunction with subdetector experts' requests and ensuring that the tool runs smoothly.
+<ul>
+  <li><a href="https://twiki.cern.ch/twiki/bin/viewauth/Atlas/DcsCalculator2" target="_blank">Twiki page</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/DataQuality/DCSCalculator2/trunk" target="_blank">Code in SVN</a></li>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/DataQuality/DCSCalculator2/trunk/ChangeLog" target="_blank">ChangeLog</a></li>
+</ul>
+</p>
+
+<h3>Defect scripts</h3>
+<p>I wrote these scripts to help analyzers study the impacts of detector defects.</p>
+
+<p><b>dq_defect_summary.py</b> - This script shows the defect dependency for a specified virtual defect over a configurable range of ATLAS data. 
+It will display either the top N primary defects contributing to data-loss or a hierarchy tree of defects with a specified depth.
+The amount of integrated luminosity affected is displayed for each defect listed.
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/DataQuality/DQDefects/trunk/share/dq_defect_summary.py" target="_blank">Code in SVN</a></li>
+</ul>
+</p>
+
+<p><b>dq_defect_list_iovs.py</b> - This script lists the intervals of data affected within a specified range by a specified set of defects.
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/DataQuality/DQDefects/trunk/share/dq_defect_list_iovs.py" target="_blank">Code in SVN</a></li>
+</ul>
+</p>
+
+<h3>Good run lists</h3>
+<p>I wrote a script, <b>diff_goodrunslists</b>, which takes two GRLs as input (in the form of XML files) and writes out two new GRLs containing only
+the portions of data unique to each of the original GRLs. This script allows a user to then isolate and study the data
+which differs between GRLs with different data quality criteria.
+<ul>
+  <li><a href="https://svnweb.cern.ch/trac/atlasoff/browser/DataQuality/GoodRunsLists/trunk/scripts/diff_goodrunslists" target="_blank">Code in SVN</a></li>
+</ul>
+</p>
+
+</body>
+</html>
